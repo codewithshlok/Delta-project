@@ -143,5 +143,5 @@ app.use((err, req, res, next) => {
 
 // start the server
 app.listen(3000, () => {
-    console.log(`Server Listenning on port:3000`)
+    console.log(`Server Listenning on port:localhost:3000`)
 })
