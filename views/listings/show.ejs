@@ -1,37 +1,12 @@
 <% layout("/layouts/boilerplate") %>
 
-    <style>
-        @media (max-width: 990px) {
-            .show-img {
-                height: 43vh !important;
-                width: 57vw !important;
-            }
-            .map-box{
-                display: none;
-            }
-
-           
-        }
-
-        @media (max-width: 767px) {
-            .responsive-listing-card {
-                margin-left: 6.666667% !important;
-                width: 73% !important;
-            }
-            .show-img {
-                width: 65vw !important;
-                height: 27vh !important;
-            }
-            .map-box{
-                display: none;
-            }
-
-            
-        }
-    </style>
 
 
-    
+    <script>
+        const mapToken = "<%= process.env.MAP_TOKEN %> ";
+        const listing = <% - JSON.stringify(listing) %> ;
+    </script>
+
 
     <div class="row">
         <div class="col-8 offset-2 mt-3 responsive-listing-card">
@@ -144,8 +119,5 @@
 
                         </div>
             </div>
-            <script>
-                const mapToken = "<%= process.env.MAP_TOKEN %> ";
-                const listing = <% - JSON.stringify(listing) %>
-            </script>
+
             <script src="/js/map.js"></script>
