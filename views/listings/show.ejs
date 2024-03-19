@@ -1,16 +1,48 @@
 <% layout("/layouts/boilerplate") %>
-<script>
-    const mapToken = "<%= process.env.MAP_TOKEN %> ";
-    const listing = <%- JSON.stringify(listing) %>;
-</script>
+
+    <style>
+        @media (max-width: 990px) {
+            .show-img {
+                height: 43vh !important;
+                width: 57vw !important;
+            }
+
+            #map {
+                width: 48vw;
+                height: 48vh;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .responsive-listing-card {
+                margin-left: 6.666667% !important;
+                width: 73% !important;
+            }
+            .show-img {
+                width: 65vw !important;
+                height: 27vh !important;
+            }
+
+            #map {
+                width: 270px;
+                height: 270px;
+            }
+        }
+    </style>
+
+
+    <script>
+        const mapToken = "<%= process.env.MAP_TOKEN %> ";
+        const listing = <% - JSON.stringify(listing) %>;
+    </script>
 
     <div class="row">
-        <div class="col-8 offset-2 mt-3">
+        <div class="col-8 offset-2 mt-3 responsive-listing-card">
             <h3>
                 <%= listing.title%>
             </h3>
         </div>
-        <div class="card col-6 offset-2 listing-card">
+        <div class="card col-6 offset-2 listing-card responsive-listing-card">
             <img src="<%= listing.image.url%>" class="card-img-top show-img" alt="loading...">
             <div class="card-body">
                 <p class="card-text">
@@ -40,7 +72,7 @@
         </div>
     </div>
     <% if(currUser && listing.owner._id.equals(currUser._id)) { %>
-        <div class="btns col-8 offset-2 mt-3 mb-3">
+        <div class="btns col-8 offset-2 mt-3 mb-3 responsive-listing-card">
             <form action="/listings/<%= listing._id %>/edit" method="GET">
                 <button class="btn btn-dark me-3 add-btn">Edit</button>
             </form>
@@ -49,7 +81,7 @@
             </form>
         </div>
         <% } %>
-            <div class=" col-8 offset-2 mt-3 mb-3">
+            <div class=" col-8 offset-2 mt-3 mb-3 responsive-listing-card">
                 <hr>
                 <% if (currUser ){ %>
                     <h4>Leave a Review</h4>
@@ -116,4 +148,3 @@
                         </div>
             </div>
             <script src="/js/map.js"></script>
-           

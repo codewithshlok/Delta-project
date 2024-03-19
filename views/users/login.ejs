@@ -1,7 +1,15 @@
 <% layout("/layouts/boilerplate") %>
+<style>
+        @media (max-width: 990px) {
+        .form-control{
+            width: 132%;
+        }
+    }
+</style>
+
     <div class="row mt-3">
-        <h1 class="col-5 offset-3">LogIn For WonderLust</h1>
-        <div class="col-5 offset-3 mt-4">
+        <h1 class="col-5 offset-3 responsive-listing-card">LogIn For WonderLust</h1>
+        <div class="col-5 offset-3 mt-4 responsive-listing-card">
             <form action="/login" method="POST" class="needs-validation" novalidate>
                 <div class="mb-3">
                     <label for="username" class="form-label">Username:</label>
