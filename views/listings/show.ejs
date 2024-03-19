@@ -6,6 +6,9 @@
                 height: 43vh !important;
                 width: 57vw !important;
             }
+            .map-box{
+                display: none;
+            }
 
            
         }
@@ -19,16 +22,16 @@
                 width: 65vw !important;
                 height: 27vh !important;
             }
+            .map-box{
+                display: none;
+            }
 
             
         }
     </style>
 
 
-    <script>
-        const mapToken = "<%= process.env.MAP_TOKEN %> ";
-        const listing = <% - JSON.stringify(listing) %>;
-    </script>
+    
 
     <div class="row">
         <div class="col-8 offset-2 mt-3 responsive-listing-card">
@@ -134,11 +137,15 @@
 
                                 </div>
                                 <% }%>
-                                    <div class="col-8  mt-3 mb-3">
+                                    <div class="col-8  mt-3 mb-3 map-box">
                                         <h3>Where You'll Be</h3>
                                         <div id="map"></div>
                                     </div>
 
                         </div>
             </div>
+            <script>
+                const mapToken = "<%= process.env.MAP_TOKEN %> ";
+                const listing = <% - JSON.stringify(listing) %>
+            </script>
             <script src="/js/map.js"></script>
